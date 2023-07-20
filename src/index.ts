@@ -1,3 +1,2 @@
-import process from 'node:process';
-
-process.stdout.write('Hello World!\n');
+export * from './lib/samehada.js';
+export * as Types from './types/index.js';

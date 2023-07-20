@@ -31,5 +31,9 @@
     "is-git-dirty": "^2.0.2",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@mojojs/dom": "^2.1.3",
+    "got": "^13.0.0"
   }
 }
