@@ -28,8 +28,8 @@ const comicScrape = (input: DOM): ComicUpdate[] => {
 const latestAnimeScrape = (input: DOM): Array<Omit<UpdatesAnime, 'rating' | 'type'>> => {
 	const doms = input.find('.post-show li[itemscope]');
 	const extractEpisode = (dom: DOM): number | number[] => {
-		const episodes = dom.at('.dtla author[itemprop="name"]')?.text().trim().match(/([0-9]+-(?:[0-9]+))/g) ?? 0;
-		return Array.isArray(episodes) ? episodes.map(x => parseFloat(x)) : [0];
+		const episodes = dom.at('.dtla author')?.text().trim().match(/([0-9]+)/g) ?? ['0'];
+		return Array.isArray(episodes) && episodes.length > 1 ? episodes.map(x => parseFloat(x)) : parseFloat(episodes[0]);
 	};
 
 	return doms.map(dom => ({
