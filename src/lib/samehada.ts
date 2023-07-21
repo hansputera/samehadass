@@ -1,24 +1,22 @@
 import {homeScrape} from '@/scraper/home.js';
-import got, {type Got} from 'got';
+import {FetchPrefixUrl} from 'fetch-baseurl';
 
 /**
  * @class Samehada
  */
 export class Samehada {
-	public $http: Got;
+	public $http: FetchPrefixUrl;
 
 	/**
      * @constructor
      * @param baseUrl Samehadaku site
      */
 	constructor(baseUrl = 'https://samehadaku.skin') {
-		this.$http = got.extend({
-			prefixUrl: baseUrl,
-		});
+		this.$http = new FetchPrefixUrl(baseUrl);
 	}
 
 	async fetchHome() {
-		const response = await this.$http.get('./');
-		return homeScrape(response.body);
+		const response = await this.$http.get('./', {});
+		return homeScrape(await response.text());
 	}
 }

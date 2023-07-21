@@ -34,6 +34,9 @@
   },
   "dependencies": {
     "@mojojs/dom": "^2.1.3",
-    "got": "^13.0.0"
+    "fetch-baseurl": "^0.0.2"
+  },
+  "engines": {
+    "node": ">=16.x"
   }
 }
