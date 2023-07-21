@@ -24,10 +24,20 @@ export type OngoingAnime = Omit<Anime, 'details' | 'synopsis' | 'genres'> & {
 
 export type UpdatesAnime = Omit<OngoingAnime, 'status'> & {
 	postedBy: string;
-	episode: number;
+	episode: number | number[];
 	releasedOn: string;
 };
 
 export type UpdatesBatchAnime = UpdatesAnime & {
 	episode: string;
+};
+
+export type Comic = {
+	url: string;
+	name: string;
+	image: string;
+};
+
+export type ComicUpdate = Comic & {
+	chapter: number; // Floated
 };

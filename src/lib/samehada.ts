@@ -11,7 +11,7 @@ export class Samehada {
      * @constructor
      * @param baseUrl Samehadaku site
      */
-	constructor(baseUrl = 'https://samehadaku.wiki') {
+	constructor(baseUrl = 'https://samehadaku.skin') {
 		this.$http = got.extend({
 			prefixUrl: baseUrl,
 		});
